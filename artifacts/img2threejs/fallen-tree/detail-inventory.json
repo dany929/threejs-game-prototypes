@@ -1,0 +1,142 @@
+{
+  "sourceImage": "artifacts/img2threejs/fallen-tree/reference/fallen-tree.png",
+  "zonesDir": "artifacts/img2threejs/fallen-tree/detail-inventory",
+  "detailInventory": {
+    "scanMethod": "grid-3x3",
+    "targetMinDetails": 10,
+    "details": [
+      {
+        "id": "root-radial-strands",
+        "kind": "contour",
+        "description": "Dense radial root silhouette with irregular taper and spacing",
+        "region": {"x": 0.02, "y": 0.35, "width": 0.32, "height": 0.48, "units": "normalized"},
+        "scale": "meso",
+        "affects": "silhouette",
+        "mapsTo": {"type": "component.localFeatures", "ref": "root-crown.radial-roots"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c0.png",
+        "confidence": 0.96
+      },
+      {
+        "id": "root-crown-cavity",
+        "kind": "hole",
+        "description": "Dark irregular cavity at the centre of the exposed root crown",
+        "region": {"x": 0.12, "y": 0.51, "width": 0.11, "height": 0.14, "units": "normalized"},
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {"type": "component.localFeatures", "ref": "root-crown.central-cavity"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c0.png",
+        "confidence": 0.88
+      },
+      {
+        "id": "proximal-vertical-branch",
+        "kind": "contour",
+        "description": "Tall broken branch rising from the proximal third of the trunk",
+        "region": {"x": 0.35, "y": 0.18, "width": 0.12, "height": 0.32, "units": "normalized"},
+        "scale": "macro",
+        "affects": "silhouette",
+        "mapsTo": {"type": "component.localFeatures", "ref": "branch-proximal.broken-profile"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r0c1.png",
+        "confidence": 0.98
+      },
+      {
+        "id": "distal-fork",
+        "kind": "contour",
+        "description": "Two-prong split at the distal end with unequal tapering branches",
+        "region": {"x": 0.71, "y": 0.25, "width": 0.27, "height": 0.28, "units": "normalized"},
+        "scale": "macro",
+        "affects": "silhouette",
+        "mapsTo": {"type": "component.localFeatures", "ref": "distal-fork.prong-pair"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c2.png",
+        "confidence": 0.97
+      },
+      {
+        "id": "upper-exposed-strip",
+        "kind": "chip",
+        "description": "Long missing-bark strip exposing lighter wood along the upper trunk",
+        "region": {"x": 0.49, "y": 0.36, "width": 0.36, "height": 0.12, "units": "normalized"},
+        "scale": "meso",
+        "affects": "albedo and shallow relief",
+        "mapsTo": {"type": "material.localOverrides", "ref": "bark.exposed-wood-strip"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+        "confidence": 0.91
+      },
+      {
+        "id": "bark-longitudinal-ridges",
+        "kind": "ridge",
+        "description": "Irregular longitudinal bark plates and ridges following the trunk axis",
+        "region": {"x": 0.24, "y": 0.4, "width": 0.57, "height": 0.31, "units": "normalized"},
+        "scale": "micro",
+        "affects": "normal, bump, and grazing highlights",
+        "mapsTo": {"type": "component.localFeatures", "ref": "main-trunk.bark-ridge-system"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+        "confidence": 0.94
+      },
+      {
+        "id": "bark-cavity-cracks",
+        "kind": "groove",
+        "description": "Dark narrow cracks between bark plates with cavity-biased shading",
+        "region": {"x": 0.27, "y": 0.44, "width": 0.5, "height": 0.24, "units": "normalized"},
+        "scale": "micro",
+        "affects": "normal and AO",
+        "mapsTo": {"type": "component.localFeatures", "ref": "main-trunk.bark-crack-system"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+        "confidence": 0.9
+      },
+      {
+        "id": "wet-upper-streaks",
+        "kind": "gloss",
+        "description": "Localized wet satin streaks on upper-facing bark ridges",
+        "region": {"x": 0.31, "y": 0.37, "width": 0.43, "height": 0.19, "units": "normalized"},
+        "scale": "micro",
+        "affects": "roughness and clearcoat",
+        "mapsTo": {"type": "material.localOverrides", "ref": "bark.wet-upper-streaks"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+        "confidence": 0.82
+      },
+      {
+        "id": "fracture-splinters",
+        "kind": "chip",
+        "description": "Pale fibrous splinter clusters at major broken branch ends",
+        "region": {"x": 0.62, "y": 0.21, "width": 0.36, "height": 0.38, "units": "normalized"},
+        "scale": "meso",
+        "affects": "silhouette and exposed wood material",
+        "mapsTo": {"type": "component.localFeatures", "ref": "fractures.splinter-clusters"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r0c2.png",
+        "confidence": 0.91
+      },
+      {
+        "id": "root-soil-stain",
+        "kind": "stain",
+        "description": "Dark soil staining concentrated around root sockets and cavities",
+        "region": {"x": 0.05, "y": 0.44, "width": 0.3, "height": 0.39, "units": "normalized"},
+        "scale": "meso",
+        "affects": "albedo, roughness, and cavity AO",
+        "mapsTo": {"type": "material.localOverrides", "ref": "bark.root-soil-stain"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r2c0.png",
+        "confidence": 0.9
+      },
+      {
+        "id": "mid-lower-branch-pair",
+        "kind": "contour",
+        "description": "Two broken branches projecting from the lower mid-trunk",
+        "region": {"x": 0.52, "y": 0.51, "width": 0.25, "height": 0.18, "units": "normalized"},
+        "scale": "meso",
+        "affects": "silhouette",
+        "mapsTo": {"type": "component.localFeatures", "ref": "branch-mid-lower.pair"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+        "confidence": 0.95
+      },
+      {
+        "id": "branch-socket-overlap",
+        "kind": "seam",
+        "description": "Thick blended collars where primary branches emerge from the trunk",
+        "region": {"x": 0.35, "y": 0.35, "width": 0.42, "height": 0.25, "units": "normalized"},
+        "scale": "meso",
+        "affects": "attachment continuity and AO",
+        "mapsTo": {"type": "component.localFeatures", "ref": "attachments.branch-socket-collars"},
+        "evidenceRef": "artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+        "confidence": 0.86
+      }
+    ]
+  }
+}

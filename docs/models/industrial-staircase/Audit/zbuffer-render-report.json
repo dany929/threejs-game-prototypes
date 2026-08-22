@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "renderer": "deterministic software rasterizer",
+  "visibility": "per-pixel Z-buffer with perspective-correct depth",
+  "shadows": "disabled to isolate topology and custom-normal shading",
+  "passes": {
+    "beauty": "BevelDetail_ZBuffer.png",
+    "normal": "BevelNormals_ZBuffer.png",
+    "depth": "BevelDepth_ZBuffer.png",
+    "orientation": "BevelOrientation_ZBuffer.png",
+    "object-id": "BevelObjectId_ZBuffer.png"
+  },
+  "objSha256": "7d1f3eb2f7693ffc571394c30886656aa534fffc217c7f74889e1e742a4d7f02"
+}

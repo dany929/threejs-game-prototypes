@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "purpose": "Independent agent review of generated staircase against four supplied references",
+  "views": {
+    "front": {
+      "reference": "artifacts/img2threejs/industrial-staircase/reference/front.jpg",
+      "generated": "Audit/generated-front.png"
+    },
+    "back": {
+      "reference": "artifacts/img2threejs/industrial-staircase/reference/back.jpg",
+      "generated": "Audit/generated-back.png"
+    },
+    "left": {
+      "reference": "artifacts/img2threejs/industrial-staircase/reference/left.jpg",
+      "generated": "Audit/generated-left.png"
+    },
+    "side": {
+      "reference": "artifacts/img2threejs/industrial-staircase/reference/side.jpg",
+      "generated": "Audit/generated-side.png"
+    }
+  },
+  "scoreRange": [
+    0,
+    1
+  ],
+  "categories": [
+    "silhouetteAndProportions",
+    "componentStructure",
+    "railAndTreadRepetition",
+    "bevelTopologyAndShading",
+    "materialsAndTextures",
+    "fourViewConsistency"
+  ],
+  "materialEvidence": {
+    "Wood": [
+      "Textures/T_Stair_Wood_BaseColor.png",
+      "Textures/T_Stair_Wood_Roughness.png",
+      "Textures/T_Stair_Wood_Normal.png",
+      "Textures/T_Stair_Wood_AO.png",
+      "Textures/T_Stair_Wood_Metallic.png"
+    ],
+    "DarkWood": [
+      "Textures/T_Stair_DarkWood_BaseColor.png",
+      "Textures/T_Stair_DarkWood_Roughness.png",
+      "Textures/T_Stair_DarkWood_Normal.png",
+      "Textures/T_Stair_DarkWood_AO.png",
+      "Textures/T_Stair_DarkWood_Metallic.png"
+    ],
+    "PaintedTeal": [
+      "Textures/T_Stair_PaintedTeal_BaseColor.png",
+      "Textures/T_Stair_PaintedTeal_Roughness.png",
+      "Textures/T_Stair_PaintedTeal_Normal.png",
+      "Textures/T_Stair_PaintedTeal_AO.png",
+      "Textures/T_Stair_PaintedTeal_Metallic.png"
+    ],
+    "OxidizedMetal": [
+      "Textures/T_Stair_OxidizedMetal_BaseColor.png",
+      "Textures/T_Stair_OxidizedMetal_Roughness.png",
+      "Textures/T_Stair_OxidizedMetal_Normal.png",
+      "Textures/T_Stair_OxidizedMetal_AO.png",
+      "Textures/T_Stair_OxidizedMetal_Metallic.png"
+    ],
+    "Fastener": [
+      "Textures/T_Stair_Fastener_BaseColor.png",
+      "Textures/T_Stair_Fastener_Roughness.png",
+      "Textures/T_Stair_Fastener_Normal.png",
+      "Textures/T_Stair_Fastener_AO.png",
+      "Textures/T_Stair_Fastener_Metallic.png"
+    ]
+  },
+  "detailEvidence": {
+    "beauty": "Audit/BevelDetail_ZBuffer.png",
+    "normal": "Audit/BevelNormals_ZBuffer.png",
+    "depth": "Audit/BevelDepth_ZBuffer.png",
+    "faceOrientation": "Audit/BevelOrientation_ZBuffer.png",
+    "objectId": "Audit/BevelObjectId_ZBuffer.png",
+    "renderReport": "Audit/zbuffer-render-report.json"
+  },
+  "targetThreshold": 0.7,
+  "requiredAgentOutput": [
+    "category scores",
+    "critical, high and medium mismatches",
+    "root cause per mismatch: geometry, material or audit camera/render",
+    "one bounded correction action: continue, refine-code, refine-spec, request-input or stop"
+  ],
+  "knownAuditLimitations": [
+    "software renderer uses a per-pixel Z-buffer and does not calculate cast shadows",
+    "beauty pass shows MTL base colors and baked custom normals rather than full PBR textures",
+    "camera matching is approximate and must not override four-view geometric evidence"
+  ]
+}

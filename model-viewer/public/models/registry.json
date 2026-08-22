@@ -1,0 +1,11 @@
+[
+  {
+    "id": "industrial-staircase",
+    "name": "Industrial Staircase",
+    "description": "Промышленная лестница по четырём фотографиям",
+    "obj": "models/industrial-staircase/SM_IndustrialStaircase.obj",
+    "mtl": "models/industrial-staircase/SM_IndustrialStaircase.mtl",
+    "up": "Z",
+    "fallbackPreview": "models/industrial-staircase/Audit/BevelDetail_ZBuffer.png"
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "asset": "Industrial Timber Staircase",
+  "source": "Procedural reconstruction from four user-supplied views",
+  "formats": [
+    "OBJ",
+    "MTL"
+  ],
+  "dimensionsMeters": {
+    "length": 5.51,
+    "width": 4.0,
+    "heightIncludingRails": 5.06
+  },
+  "coordinateSystem": {
+    "up": "+Z",
+    "forward": "+X",
+    "units": "meters"
+  },
+  "stepCount": 15,
+  "renderParts": [
+    "SM_IndustrialStaircase_Flight",
+    "SM_IndustrialStaircase_Sides",
+    "SM_IndustrialStaircase_Supports",
+    "SM_IndustrialStaircase_Rails"
+  ],
+  "materials": [
+    "Wood",
+    "DarkWood",
+    "PaintedTeal",
+    "OxidizedMetal",
+    "Fastener"
+  ],
+  "textureSets": {
+    "Wood": [
+      "T_Stair_Wood_BaseColor.png",
+      "T_Stair_Wood_Roughness.png",
+      "T_Stair_Wood_Normal.png",
+      "T_Stair_Wood_AO.png",
+      "T_Stair_Wood_Metallic.png"
+    ],
+    "DarkWood": [
+      "T_Stair_DarkWood_BaseColor.png",
+      "T_Stair_DarkWood_Roughness.png",
+      "T_Stair_DarkWood_Normal.png",
+      "T_Stair_DarkWood_AO.png",
+      "T_Stair_DarkWood_Metallic.png"
+    ],
+    "PaintedTeal": [
+      "T_Stair_PaintedTeal_BaseColor.png",
+      "T_Stair_PaintedTeal_Roughness.png",
+      "T_Stair_PaintedTeal_Normal.png",
+      "T_Stair_PaintedTeal_AO.png",
+      "T_Stair_PaintedTeal_Metallic.png"
+    ],
+    "OxidizedMetal": [
+      "T_Stair_OxidizedMetal_BaseColor.png",
+      "T_Stair_OxidizedMetal_Roughness.png",
+      "T_Stair_OxidizedMetal_Normal.png",
+      "T_Stair_OxidizedMetal_AO.png",
+      "T_Stair_OxidizedMetal_Metallic.png"
+    ],
+    "Fastener": [
+      "T_Stair_Fastener_BaseColor.png",
+      "T_Stair_Fastener_Roughness.png",
+      "T_Stair_Fastener_Normal.png",
+      "T_Stair_Fastener_AO.png",
+      "T_Stair_Fastener_Metallic.png"
+    ]
+  },
+  "geometry": {
+    "polygons": 5460,
+    "trianglesAfterImport": 10968
+  },
+  "sideBevel": {
+    "segments": 2,
+    "targets": [
+      "vertical side boards",
+      "painted diagonal caps",
+      "lower side beams"
+    ],
+    "widthMeters": {
+      "boards": 0.012,
+      "diagonalCaps": 0.018,
+      "lowerBeams": 0.015
+    },
+    "shading": "welded positions with baked custom normals"
+  },
+  "collisionFile": "UCX_SM_IndustrialStaircase.obj",
+  "collisionGroups": [
+    "UCX_SM_IndustrialStaircase_00",
+    "UCX_SM_IndustrialStaircase_01"
+  ],
+  "limitations": [
+    "Proportions are reconstructed from photographs, not measured drawings.",
+    "OBJ has no universal unit metadata; this package stores vertices in meters.",
+    "MTL PBR extensions are importer-dependent; wire Roughness, AO and Metallic manually when they are ignored.",
+    "Procedural tile textures approximate the photographed wear and are not photogrammetric captures."
+  ]
+}

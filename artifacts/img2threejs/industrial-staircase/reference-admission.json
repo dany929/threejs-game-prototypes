@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "primaryReference": "reference/side.jpg",
+  "verdict": "pass",
+  "admittedViews": [
+    {
+      "viewpoint": "right-side",
+      "path": "reference/side.jpg",
+      "width": 211,
+      "height": 251,
+      "foregroundCoverage": 0.9689,
+      "largestComponentFraction": 1.0,
+      "pHash": 18420003542444026004
+    },
+    {
+      "viewpoint": "left-side",
+      "path": "reference/left.jpg",
+      "width": 211,
+      "height": 251,
+      "foregroundCoverage": 0.9694,
+      "largestComponentFraction": 1.0,
+      "pHash": 18420003542444026004
+    }
+  ],
+  "supplementaryViews": [
+    {
+      "viewpoint": "front",
+      "path": "reference/front.jpg",
+      "admitted": false,
+      "reason": "foreground coverage 0.9765 exceeds the silhouette-isolation threshold"
+    },
+    {
+      "viewpoint": "rear",
+      "path": "reference/back.jpg",
+      "admitted": false,
+      "reason": "foreground coverage 0.9909 exceeds the silhouette-isolation threshold"
+    }
+  ],
+  "note": "Front and rear remain observation evidence for width and underside layout, but are not deterministic silhouette ground truth."
+}

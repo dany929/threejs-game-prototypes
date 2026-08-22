@@ -1,0 +1,85 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.86,
+  "estimatedFidelity": 0.86,
+  "targetThreshold": 0.7,
+  "materialId": "base",
+  "sourceImage": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/detail-inventory/zone-r1c1.png",
+  "outDir": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/material-evidence/bark",
+  "palette": [
+    "#48433E",
+    "#2B2722",
+    "#69655F",
+    "#CFCFCF",
+    "#8E8C88"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/material-evidence/bark/base_albedo.png",
+      "url": "base_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/material-evidence/bark/base_roughness.png",
+      "url": "base_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/material-evidence/bark/base_height.png",
+      "url": "base_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/material-evidence/bark/base_normal.png",
+      "url": "base_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "/workspace/sites/threejs-inside-prototype/artifacts/img2threejs/fallen-tree/material-evidence/bark/base_ao.png",
+      "url": "base_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 512,
+    "sourceHeight": 341,
+    "mapSize": 1024,
+    "cropBBoxPixels": {
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 341
+    },
+    "mask": {
+      "backgroundColor": "#EDEDEF",
+      "backgroundNoise": 6.403,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 0.5649
+    },
+    "mapStats": {
+      "valueRange": 0.7303,
+      "heightP90Gradient": 0.05265,
+      "roughnessBase": 0.691,
+      "roughnessVariation": 0.108,
+      "normalStrength": 0.218,
+      "blurRadius": 21
+    },
+    "palette": [
+      "#48433E",
+      "#2B2722",
+      "#69655F",
+      "#CFCFCF",
+      "#8E8C88"
+    ]
+  },
+  "warnings": [
+    "single-image inverse rendering cannot prove true physical PBR; confidence is capped"
+  ],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

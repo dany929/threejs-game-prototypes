@@ -1,0 +1,14 @@
+{
+  "admitted": true,
+  "reasons": [],
+  "provenance": {
+    "viewpoint": "reference",
+    "sourcePath": "artifacts/img2threejs/fallen-tree/reference/fallen-tree.png",
+    "width": 1536,
+    "height": 1024,
+    "foregroundCoverage": 0.1743,
+    "largestComponentFraction": 1.0,
+    "pHash": 17241727702278383696,
+    "duplicateOfHash": null
+  }
+}

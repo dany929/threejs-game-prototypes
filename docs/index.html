@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111514" />
+    <meta name="description" content="Проверочная среда OBJ/MTL: материалы, нормали, глубина, ориентация граней и аудит топологии." />
+    <title>Model QA Lab</title>
+    <script type="module" crossorigin src="./assets/index-De8PsQyr.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CA8yyDI5.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">THREE.JS · OBJ/MTL</p>
+          <h1>Model QA Lab</h1>
+        </div>
+        <div class="topbar-actions">
+          <select id="asset-select" aria-label="Модель из галереи"></select>
+          <button id="fit-button" type="button">Вписать в кадр</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="viewport-panel" aria-label="Трёхмерный просмотр модели">
+          <canvas id="viewport"></canvas>
+          <div id="webgl-fallback" class="fallback" hidden>
+            <img id="fallback-image" alt="Контрольное изображение модели" />
+            <div>
+              <p class="eyebrow">WEBGL НЕДОСТУПЕН</p>
+              <h2>Топологический аудит продолжает работать</h2>
+              <p id="fallback-message">Интерактивный просмотр недоступен в этом браузере, но модель и отчёт всё ещё загружаются.</p>
+            </div>
+          </div>
+
+          <div class="mode-bar" role="toolbar" aria-label="Режим отображения">
+            <button type="button" data-mode="material" class="is-active">Материал</button>
+            <button type="button" data-mode="clay">Глина</button>
+            <button type="button" data-mode="normal">Нормали</button>
+            <button type="button" data-mode="depth">Глубина</button>
+            <button type="button" data-mode="orientation">Грани</button>
+            <button type="button" data-mode="wireframe">Каркас</button>
+          </div>
+
+          <div class="camera-bar" role="toolbar" aria-label="Ракурс камеры">
+            <button type="button" data-view="perspective" class="is-active">3/4</button>
+            <button type="button" data-view="front">Спереди</button>
+            <button type="button" data-view="back">Сзади</button>
+            <button type="button" data-view="left">Слева</button>
+            <button type="button" data-view="right">Справа</button>
+            <button type="button" data-view="top">Сверху</button>
+          </div>
+
+          <div class="viewport-status">
+            <span id="render-state" class="status-dot">Загрузка</span>
+            <span id="model-name">—</span>
+          </div>
+        </section>
+
+        <aside class="inspector">
+          <section class="inspector-section load-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">ИСТОЧНИК</p>
+                <h2>Загрузить из GitHub</h2>
+              </div>
+              <button id="reset-source" class="quiet-button" type="button">Сбросить</button>
+            </div>
+            <label>
+              OBJ
+              <input id="obj-url" type="url" inputmode="url" placeholder="github.com/user/repo/blob/main/model.obj" />
+            </label>
+            <label>
+              MTL <span>необязательно</span>
+              <input id="mtl-url" type="url" inputmode="url" placeholder="github.com/user/repo/blob/main/model.mtl" />
+            </label>
+            <div class="form-row">
+              <label class="check-label"><input id="z-up" type="checkbox" checked /> Z вверх</label>
+              <button id="load-button" class="primary-button" type="button">Загрузить</button>
+            </div>
+            <p class="form-note">Ссылки GitHub вида <code>/blob/</code> автоматически преобразуются в raw‑ссылки. Для приватных репозиториев браузеру потребуется отдельный доступ.</p>
+          </section>
+
+          <section class="inspector-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">СЦЕНА</p>
+                <h2>Свет и отображение</h2>
+              </div>
+            </div>
+            <label class="range-label">Экспозиция <output id="exposure-value">1.10</output><input id="exposure" type="range" min="0.35" max="2.2" step="0.05" value="1.10" /></label>
+            <label class="range-label">Поворот света <output id="light-value">35°</output><input id="light-angle" type="range" min="-180" max="180" step="1" value="35" /></label>
+            <div class="toggle-grid">
+              <label class="check-label"><input id="grid-toggle" type="checkbox" checked /> Сетка</label>
+              <label class="check-label"><input id="axes-toggle" type="checkbox" /> Оси</label>
+              <label class="check-label"><input id="shadow-toggle" type="checkbox" checked /> Тени</label>
+              <label class="check-label"><input id="rotate-toggle" type="checkbox" /> Автовращение</label>
+            </div>
+          </section>
+
+          <section class="inspector-section report-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">АВТОМАТИЧЕСКАЯ ПРОВЕРКА</p>
+                <h2>Отчёт модели</h2>
+              </div>
+              <button id="download-report" class="quiet-button" type="button" disabled>JSON</button>
+            </div>
+            <div id="summary-score" class="summary-score"><strong>—</strong><span>ожидание модели</span></div>
+            <div id="metrics" class="metrics"></div>
+            <div id="checks" class="checks" aria-live="polite"></div>
+          </section>
+
+          <section class="inspector-section limitations-section">
+            <p class="eyebrow">ГРАНИЦЫ ПРОВЕРКИ</p>
+            <p>Просмотрщик обнаруживает ошибки структуры OBJ, но не заменяет финальный осмотр бликов в Blender. Карты Roughness, Metallic и AO зависят от поддержки расширений MTL.</p>
+          </section>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
